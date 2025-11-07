@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Node 18 이상이면 ES2020 이상 추천
+    "module": "NodeNext", // import/export 사용
+    "moduleResolution": "NodeNext", // ESM 호환 설정 (중요)
+    "rootDir": "src", // 소스 코드 위치
+    "outDir": "dist", // 컴파일된 결과물
+    "esModuleInterop": true, // default import 허용
+    "strict": true, // 타입 검사를 엄격하게
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"]
+}

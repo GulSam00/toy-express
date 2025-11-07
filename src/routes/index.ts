@@ -1,8 +1,10 @@
-import express from "express";
+import { Router } from "express";
 import { getHome } from "../controllers/indexController.js";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", getHome);
 
 export default router;
+
+
