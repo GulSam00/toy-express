@@ -21,4 +21,5 @@ export interface PaginatedResponse<T> {
   };
 }
 
-
+// User 모델 재export
+export * from "./User.js";

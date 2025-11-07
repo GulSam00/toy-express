@@ -1,6 +1,8 @@
 import { config } from "./config/env.js";
+import { corsHandler } from "./middleware/cors.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { notFoundHandler } from "./middleware/notFoundHandler.js";
+import { validateRequest } from "./middleware/validateRequest.js";
 // Routes
 import indexRouter from "./routes/index.js";
 import usersRouter from "./routes/users.js";
@@ -9,6 +11,9 @@ import express, { Express } from "express";
 import morgan from "morgan";
 
 const app: Express = express();
+
+// CORS 설정 (최상단에 위치)
+app.use(corsHandler);
 
 // 미들웨어 설정
 if (config.nodeEnv === "development") {
@@ -19,6 +24,9 @@ if (config.nodeEnv === "development") {
 
 app.use(express.json()); // JSON 파싱
 app.use(express.urlencoded({ extended: true })); // URL 인코딩된 데이터 파싱
+
+// 요청 검증 미들웨어
+app.use(validateRequest);
 
 // 라우터 설정
 app.use("/", indexRouter);

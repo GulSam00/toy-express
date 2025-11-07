@@ -1,13 +1,7 @@
+import { validateEnv } from "./envValidation.js";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-export const config = {
-  port: parseInt(process.env.PORT || "4000", 10),
-  nodeEnv: process.env.NODE_ENV || "development",
-  jwtSecret: process.env.JWT_SECRET || "your-secret-key-change-in-production",
-  jwtExpiresIn: process.env.JWT_EXPIRES_IN || "7d",
-  databaseUrl: process.env.DATABASE_URL || "file:./dev.db",
-} as const;
-
-
+// 환경 변수 검증 및 설정
+export const config = validateEnv();
