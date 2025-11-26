@@ -30,48 +30,48 @@
 
 #### 1.1 서버 구조 이해
 
-- [ ] 현재 프로젝트 구조 분석 (`src/` 디렉토리)
-- [ ] `app.ts`의 역할과 미들웨어 체인 이해
-- [ ] 라우터 분리 패턴 학습 (`routes/`, `controllers/`)
-- [ ] MVC 패턴 적용해보기
+- [x] 현재 프로젝트 구조 분석 (`src/` 디렉토리)
+- [x] `app.ts`의 역할과 미들웨어 체인 이해
+- [x] 라우터 분리 패턴 학습 (`routes/`, `controllers/`)
+- [x] MVC 패턴 적용해보기
 
 #### 1.2 RESTful API 설계
 
-- [ ] CRUD API 구현 (Users 리소스)
+- [x] CRUD API 구현 (Users 리소스)
   - GET `/api/users` - 사용자 목록 조회
   - GET `/api/users/:id` - 특정 사용자 조회
   - POST `/api/users` - 사용자 생성
   - PUT `/api/users/:id` - 사용자 수정
   - DELETE `/api/users/:id` - 사용자 삭제
-- [ ] HTTP 상태 코드 적절히 사용하기
-- [ ] 요청/응답 형식 표준화 (`ApiResponse` 모델 활용)
+- [x] HTTP 상태 코드 적절히 사용하기
+- [x] 요청/응답 형식 표준화 (`ApiResponse` 모델 활용)
 
 #### 1.3 미들웨어 활용
 
-- [ ] 인증 미들웨어 구현 (`authMiddleware.ts`)
-- [ ] 요청 검증 미들웨어 (예: `validateRequest.ts`)
-- [ ] 로깅 미들웨어 개선 (`logger.ts` 활용)
-- [ ] CORS 설정 미들웨어 추가
+- [ ] 인증 미들웨어 구현 (`authMiddleware.ts`) - 2단계에서 JWT와 함께 구현
+- [x] 요청 검증 미들웨어 (예: `validateRequest.ts`)
+- [x] 로깅 미들웨어 개선 (`logger.ts` 활용)
+- [x] CORS 설정 미들웨어 추가
 
 #### 1.4 에러 핸들링 강화
 
-- [ ] 커스텀 에러 클래스 생성 (`CustomError.ts`)
-- [ ] 에러 타입별 처리 (`BadRequestError`, `NotFoundError`, `UnauthorizedError` 등)
-- [ ] 에러 로깅 및 모니터링
+- [x] 커스텀 에러 클래스 생성 (`CustomError.ts`)
+- [x] 에러 타입별 처리 (`BadRequestError`, `NotFoundError`, `UnauthorizedError` 등)
+- [x] 에러 로깅 및 모니터링
 
 #### 1.5 환경 변수 관리
 
-- [ ] `.env` 파일 구조화
-- [ ] 환경별 설정 분리 (development, production, test)
-- [ ] 설정 값 검증 로직 추가
+- [x] `.env` 파일 구조화
+- [x] 환경별 설정 분리 (development, production, test)
+- [x] 설정 값 검증 로직 추가
 
 ### 체크리스트
 
-- [ ] 완전한 CRUD API 구현 완료
-- [ ] 에러 핸들링이 모든 엔드포인트에서 동작
-- [ ] 요청 검증 로직이 모든 POST/PUT에서 동작
-- [ ] 로깅이 제대로 동작하는지 확인
-- [ ] 환경 변수를 통한 설정 관리가 동작
+- [x] 완전한 CRUD API 구현 완료
+- [x] 에러 핸들링이 모든 엔드포인트에서 동작
+- [x] 요청 검증 로직이 모든 POST/PUT에서 동작
+- [x] 로깅이 제대로 동작하는지 확인
+- [x] 환경 변수를 통한 설정 관리가 동작
 
 ### 추가 학습 자료
 

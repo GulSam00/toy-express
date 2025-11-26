@@ -1,4 +1,4 @@
-# 1단계: 백엔드의 기본 구조 - 이론 가이드
+# 1-1 백엔드의 기본 구조 - 이론 가이드
 
 프론트엔드 개발자를 위한 백엔드 기본 개념 설명서
 
@@ -41,7 +41,8 @@
 
 ### 현재 프로젝트의 서버
 
-```11:37:src/app.ts
+```typescript
+// src/app.ts
 const app: Express = express();
 
 // 미들웨어 설정
@@ -130,7 +131,8 @@ app.listen(4000, () => {
 
 ### 현재 프로젝트의 미들웨어
 
-```13:21:src/app.ts
+```typescript
+// src/app.ts
 // 미들웨어 설정
 if (config.nodeEnv === "development") {
   app.use(morgan("dev")); // HTTP 요청 로깅
@@ -196,7 +198,8 @@ HTTP 메서드: GET
 
 ### 현재 프로젝트의 라우팅
 
-```23:25:src/app.ts
+```typescript
+// src/app.ts
 // 라우터 설정
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
@@ -209,9 +212,10 @@ app.use("/api/users", usersRouter);
 
 ### 라우터 파일 구조
 
-```1:8:src/routes/users.ts
-import { Router } from "express";
+```typescript
+// src/routes/users.ts
 import { getUsers } from "../controllers/usersController.js";
+import { Router } from "express";
 
 const router = Router();
 
@@ -263,9 +267,10 @@ Model (데이터) ← → Controller (로직) ← → View (표시)
 
 ### 현재 프로젝트의 컨트롤러
 
-```1:15:src/controllers/usersController.ts
-import { Request, Response } from "express";
+```typescript
+// src/controllers/usersController.ts
 import { ApiResponse } from "../models/index.js";
+import { Request, Response } from "express";
 
 export const getUsers = (req: Request, res: Response): void => {
   const response: ApiResponse = {
@@ -481,13 +486,14 @@ res.status(500).json({ success: false, error: "서버 오류가 발생했습니�
 
 ### 현재 프로젝트의 상태 코드 사용
 
-```29:34:src/middleware/errorHandler.ts
-  const response: ApiResponse = {
-    success: false,
-    error: message,
-  };
+```typescript
+// src/middleware/errorHandler.ts
+const response: ApiResponse = {
+  success: false,
+  error: message,
+};
 
-  res.status(statusCode).json(response);
+res.status(statusCode).json(response);
 ```
 
 에러 핸들러에서 상태 코드를 동적으로 설정합니다.
@@ -509,7 +515,8 @@ res.status(500).json({ success: false, error: "서버 오류가 발생했습니�
 
 #### 1. 404 핸들러 (Not Found)
 
-```4:10:src/middleware/notFoundHandler.ts
+```typescript
+// src/middleware/notFoundHandler.ts
 export const notFoundHandler = (
   req: Request,
   res: Response,
@@ -524,7 +531,8 @@ export const notFoundHandler = (
 
 #### 2. 전역 에러 핸들러
 
-```6:35:src/middleware/errorHandler.ts
+```typescript
+// src/middleware/errorHandler.ts
 export const errorHandler = (
   err: Error | createError.HttpError,
   req: Request,
@@ -679,7 +687,8 @@ curl http://localhost:4000/api/users
 
 ### 현재 프로젝트의 환경 변수 관리
 
-```1:11:src/config/env.ts
+```typescript
+// src/config/env.ts
 import dotenv from "dotenv";
 
 dotenv.config();
